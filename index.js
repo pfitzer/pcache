@@ -15,17 +15,31 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
+function now() { return (new Date).getTime(); }
+
 var pcache = function(t) {
-    this.t = t;
+    this.t = t * 1000;
     this.storage = {};
 }
 
 pcache.prototype.set = function(k, v) {
-    this.storage[k]= v;
+    var e = this.t + now();
+    this.storage[k]= { value: v, expire: e };
 }
 
 pcache.prototype.get = function(k) {
-    return this.storage[k]
+    var v = this.storage[k].value;
+
+    if (this.storage[k].expire >= now()) {
+        return v;
+    }
+    this.del(k);
+
+    return null;
+}
+
+pcache.prototype.del = function(k) {
+    delete this.storage[k];
 }
 
 pcache.prototype.clearAll = function() {
