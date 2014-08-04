@@ -10,11 +10,13 @@ simple caching module for nodejs
 ## usage
 
     var cache = import('pcache');
-    // init new cache with cache time of 60s
+    # init new cache with caching time of 60s
     var myCache = new cache(60);
 
 ### setter
     myCache.set('foo', 'bar');
+    # you can also set a individual caching time
+    myCache.set('foo', 'bar', 3600);
 
 ### getter
     myCache.get('foo');
