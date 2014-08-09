@@ -2,6 +2,8 @@
 
 * * *
 
+[<img src="https://travis-ci.org/pfitzer/pcache.svg?branch=master">](https://travis-ci.org/pfitzer/pcache)
+
 simple caching module for nodejs
 
 ## install
