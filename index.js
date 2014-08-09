@@ -19,7 +19,7 @@
  *
  * @returns {number}
  */
-function now() { return (new Date).getTime(); }
+function now() { return new Date().getTime(); }
 
 /**
  *
@@ -32,7 +32,7 @@ var pcache = function(t) {
         this.t = null;
     }
     this.storage = {};
-}
+};
 
 /**
  *
@@ -43,12 +43,12 @@ var pcache = function(t) {
 pcache.prototype.set = function(k, v, t) {
     var e = null;
     if(!isNaN(t)) {
-        var e = t * 1000 + now();
+        e = t * 1000 + now();
     } else if (!isNaN(this.t)) {
-        var e = this.t + now();
+        e = this.t + now();
     }
     this.storage[k]= { value: v, expire: e };
-}
+};
 
 /**
  *
@@ -56,6 +56,9 @@ pcache.prototype.set = function(k, v, t) {
  * @returns {*}
  */
 pcache.prototype.get = function(k) {
+    if (!(k in this.storage)) {
+        return null;
+    }
     var v = this.storage[k].value;
     if (null === this.storage[k].expire || this.storage[k].expire >= now()) {
         return v;
@@ -63,7 +66,7 @@ pcache.prototype.get = function(k) {
     this.del(k);
 
     return null;
-}
+};
 
 /**
  *
@@ -71,14 +74,14 @@ pcache.prototype.get = function(k) {
  */
 pcache.prototype.del = function(k) {
     delete this.storage[k];
-}
+};
 
 /**
  *
  */
 pcache.prototype.clearAll = function() {
     this.storage = {};
-}
+};
 
 /**
  *
@@ -89,11 +92,11 @@ pcache.prototype.keys = function() {
     Object.keys(this.storage).forEach(function(i) {
         if (s[i].expire <= now()) {
             delete s[i];
-        };
+        }
     });
     this.storage = s;
 
-    return Object.keys(this.storage)
+    return Object.keys(this.storage);
 };
 
 if (typeof exports !== "undefined") {
