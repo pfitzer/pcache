@@ -1,6 +1,6 @@
 {
   "name": "pcache",
-  "version": "0.0.3",
+  "version": "0.1",
   "description": "node caching module",
   "main": "index.js",
     "scripts": {

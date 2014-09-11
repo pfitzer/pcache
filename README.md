@@ -2,7 +2,7 @@
 
 * * *
 
-[<img src="https://travis-ci.org/pfitzer/pcache.svg?branch=master">](https://travis-ci.org/pfitzer/pcache)
+[![Build Status](https://travis-ci.org/pfitzer/pcache.svg?branch=master)](https://travis-ci.org/pfitzer/pcache) [![devDependency Status](https://david-dm.org/pfitzer/pcache/dev-status.png)](https://david-dm.org/pfitzer/pcache#info=devDependencies)
 
 simple caching module for nodejs
 
