@@ -14,7 +14,7 @@ module.exports = function (grunt) {
         },
         jasmine: {
             all: {
-                src: 'index.js',
+                src: 'lib/pcache.js',
                 options: {
                     specs: 'tests/*.spec.js'
                 }
