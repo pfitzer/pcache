@@ -17,7 +17,7 @@
     "url": "https://github.com/pfitzer/pcache/issues"
   },
   "author": "Michael Pfister <michael@mp-development.de> (http://www.mp-development.de/)",
-  "license": "BSD",
+  "license": "BSD 2-clause FreeBSD License",
   "devDependencies": {
     "grunt": "~1.0.1",
     "grunt-contrib-jshint": "~1.0.0",
