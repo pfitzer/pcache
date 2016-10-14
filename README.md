@@ -2,7 +2,7 @@
 
 * * *
 
-[![Build Status](https://travis-ci.org/pfitzer/pcache.svg?branch=master)](https://travis-ci.org/pfitzer/pcache) [![devDependency Status](https://david-dm.org/pfitzer/pcache/dev-status.png)](https://david-dm.org/pfitzer/pcache#info=devDependencies)
+[![Build Status](https://travis-ci.org/pfitzer/pcache.svg?branch=master)](https://travis-ci.org/pfitzer/pcache) [![devDependency Status](https://david-dm.org/pfitzer/pcache/dev-status.png)](https://david-dm.org/pfitzer/pcache#info=devDependencies) [![npm](https://img.shields.io/npm/dt/pcache.svg?maxAge=2592000?style=plastic)](https://www.npmjs.com/package/pcache)
 
 simple caching module for nodejs
 
