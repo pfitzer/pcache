@@ -4,7 +4,7 @@
   "description": "simple node caching module",
   "main": "index.js",
   "scripts": {
-    "test": "jasmine-node spec/",
+    "test": "tslint -c tslint.json 'lib/*.ts' && jasmine-node spec/",
     "build": "tsc"
   },
   "keywords": [
@@ -21,6 +21,7 @@
   "license": "BSD-2-Clause",
   "devDependencies": {
     "jasmine-node": "^1.16.2",
+    "tslint": "^5.11.0",
     "typescript": "^3.0.3"
   }
 }

@@ -1,11 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var now = function () { return new Date().getTime(); };
-var Store = /** @class */ (function () {
-    function Store() {
-    }
-    return Store;
-}());
 var Pcache = /** @class */ (function () {
     function Pcache(t) {
         var _this = this;
@@ -17,10 +12,14 @@ var Pcache = /** @class */ (function () {
             else if (!isNaN(_this.t)) {
                 e = _this.t + now();
             }
+            else {
+                e = null;
+            }
             _this.storage[k] = { value: v, expire: e };
         };
         this.get = function (k) {
-            if (!(k in _this.storage)) {
+            console.log(_this.storage[k]);
+            if (!_this.storage.hasOwnProperty(k)) {
                 return null;
             }
             var v = _this.storage[k].value;

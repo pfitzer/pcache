@@ -1,14 +1,16 @@
-const now = () => { return new Date().getTime(); }
+const now = () => {
+    return new Date().getTime();
+};
 
-class Store {
-    public value: any;
-    public expire: any;
+interface IStore {
+    value: any;
+    expire: any;
 }
 
 class Pcache {
 
     private t: number;
-    private storage: Record<string, Store>;
+    private storage: {[key: string]: IStore};
 
     constructor(t: number) {
         this.t = t;
@@ -21,15 +23,17 @@ class Pcache {
             e = t * 1000 + now();
         } else if (!isNaN(this.t)) {
             e = this.t + now();
+        } else {
+            e = null;
         }
         this.storage[k] = {value: v, expire: e};
     }
 
-    public get = (k: any) => {
-        if (!(k in this.storage)) {
+    public get = (k: string) => {
+        if (!this.storage.hasOwnProperty(k)) {
             return null;
         }
-        var v = this.storage[k].value;
+        const v = this.storage[k].value;
         if (null === this.storage[k].expire || this.storage[k].expire >= now()) {
             return v;
         }
@@ -40,22 +44,22 @@ class Pcache {
 
     public del = (k: any) => {
         delete this.storage[k];
-    };
+    }
 
     /**
      *
      */
     public clearAll = () => {
         this.storage = {};
-    };
+    }
 
     /**
      *
      * @returns {Array}
      */
     public keys = () => {
-        var s = this.storage;
-        Object.keys(this.storage).forEach(function(i) {
+        const s = this.storage;
+        Object.keys(this.storage).forEach((i) => {
             if (s[i].expire <= now()) {
                 delete s[i];
             }
@@ -63,7 +67,7 @@ class Pcache {
         this.storage = s;
 
         return Object.keys(this.storage);
-    };
+    }
 }
 
-export {Pcache}
+export {Pcache};

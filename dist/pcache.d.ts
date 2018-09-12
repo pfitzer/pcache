@@ -3,7 +3,7 @@ declare class Pcache {
     private storage;
     constructor(t: number);
     set: (k: any, v: any, t: number) => void;
-    get: (k: any) => any;
+    get: (k: string) => any;
     del: (k: any) => void;
     /**
      *

@@ -2,4 +2,3 @@
 .gitignore
 .travis.yml
 spec/
-Gruntfile.js
