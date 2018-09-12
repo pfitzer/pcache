@@ -1,11 +1,12 @@
 {
   "name": "pcache",
-  "version": "0.1.3",
+  "version": "0.2.0",
   "description": "simple node caching module",
   "main": "index.js",
-    "scripts": {
-        "test": "grunt"
-    },
+  "scripts": {
+    "test": "jasmine-node spec/",
+    "build": "tsc"
+  },
   "keywords": [
     "cache, object cache, memory cache"
   ],
@@ -19,8 +20,7 @@
   "author": "Michael Pfister <michael@mp-development.de> (http://www.mp-development.de/)",
   "license": "BSD-2-Clause",
   "devDependencies": {
-    "grunt": "~1.0.1",
-    "grunt-contrib-jshint": "~1.0.0",
-    "grunt-contrib-jasmine": "~1.0.3"
+    "jasmine-node": "^1.16.2",
+    "typescript": "^3.0.3"
   }
 }

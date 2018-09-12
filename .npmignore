@@ -1,5 +1,5 @@
 .idea/
 .gitignore
 .travis.yml
-tests/
+spec/
 Gruntfile.js

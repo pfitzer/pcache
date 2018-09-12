@@ -15,4 +15,4 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-module.exports = require('./lib/pcache');
+module.exports = require('./dist/pcache').Pcache;
