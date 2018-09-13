@@ -1,4 +1,9 @@
 .idea/
 .gitignore
+.npmignore
 .travis.yml
+tsconfig.json
+tslint.json
+package-lock.json
 spec/
+lib/

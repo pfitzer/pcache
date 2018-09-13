@@ -1,9 +1,12 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var now = function () { return new Date().getTime(); };
+var now = function () {
+    return new Date().getTime();
+};
 var Pcache = /** @class */ (function () {
     function Pcache(t) {
         var _this = this;
+        this.t = t;
         this.set = function (k, v, t) {
             var e;
             if (!isNaN(t)) {
@@ -18,7 +21,6 @@ var Pcache = /** @class */ (function () {
             _this.storage[k] = { value: v, expire: e };
         };
         this.get = function (k) {
-            console.log(_this.storage[k]);
             if (!_this.storage.hasOwnProperty(k)) {
                 return null;
             }
@@ -32,16 +34,9 @@ var Pcache = /** @class */ (function () {
         this.del = function (k) {
             delete _this.storage[k];
         };
-        /**
-         *
-         */
         this.clearAll = function () {
             _this.storage = {};
         };
-        /**
-         *
-         * @returns {Array}
-         */
         this.keys = function () {
             var s = _this.storage;
             Object.keys(_this.storage).forEach(function (i) {
@@ -57,4 +52,4 @@ var Pcache = /** @class */ (function () {
     }
     return Pcache;
 }());
-exports.Pcache = Pcache;
+exports.pcache = Pcache;

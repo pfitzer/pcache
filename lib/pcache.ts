@@ -1,4 +1,4 @@
-const now = () => {
+const now = (): number => {
     return new Date().getTime();
 };
 
@@ -8,16 +8,14 @@ interface IStore {
 }
 
 class Pcache {
-
-    private t: number;
     private storage: {[key: string]: IStore};
 
-    constructor(t: number) {
+    constructor(private t: number) {
         this.t = t;
         this.storage = {};
     }
 
-    public set = (k: any, v: any, t: number) => {
+    public set = (k: string, v: any, t: number) => {
         let e;
         if (!isNaN(t)) {
             e = t * 1000 + now();
@@ -29,7 +27,7 @@ class Pcache {
         this.storage[k] = {value: v, expire: e};
     }
 
-    public get = (k: string) => {
+    public get = (k: string): any => {
         if (!this.storage.hasOwnProperty(k)) {
             return null;
         }
@@ -46,18 +44,11 @@ class Pcache {
         delete this.storage[k];
     }
 
-    /**
-     *
-     */
     public clearAll = () => {
         this.storage = {};
     }
 
-    /**
-     *
-     * @returns {Array}
-     */
-    public keys = () => {
+    public keys = (): string[] => {
         const s = this.storage;
         Object.keys(this.storage).forEach((i) => {
             if (s[i].expire <= now()) {
@@ -70,4 +61,4 @@ class Pcache {
     }
 }
 
-export {Pcache};
+export {Pcache as pcache};
